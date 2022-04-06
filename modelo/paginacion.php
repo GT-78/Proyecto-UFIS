@@ -5,7 +5,7 @@ require_once("conectar.php");
 $base=Conectar::conexion();
 
 //--------------------------Paginacion--------------------
-$tamano_paginas=10; //Cuantos registros quiero mostrar por pagina
+$tamano_paginas=9; //Cuantos registros quiero mostrar por pagina
 
 if(isset($_GET["pagina"])){
     if ($_GET["pagina"]==1){

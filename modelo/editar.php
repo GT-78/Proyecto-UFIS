@@ -52,7 +52,7 @@ $base=Conectar::conexion();
   // Ejecucion del array
   $resultado->execute(array(":miId"=>$Id, ":miNom"=>$nom, ":miApe"=>$ape, ":miUsu"=>$usu, ":miCla"=>$cla, ":miInte"=>$inte, ":miTeam"=>$team, ":miUbi"=>$ubi, ":miDpto"=>$dpto, ":miObs"=>$obs)); 
 
-  header("Location:/Curso%20PHP/UFIS/index.php"); //Volvemos a la pagina index con la informacion actaulizada. 
+  header("Location:/Proyecto-UFIS/index.php"); //Volvemos a la pagina index con la informacion actaulizada. 
 
 }
 
@@ -62,7 +62,7 @@ $base=Conectar::conexion();
 
 </p>
 <p>&nbsp;</p>
-
+<div class="container-fluid">
 <form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   <table width="25%" border="0" align="center">
     <tr>
@@ -138,14 +138,17 @@ $base=Conectar::conexion();
       <td><label for="obs"></label>
       <input type="text" name="obs" id="obs" value="<?php echo $obs ?>"></td>
     </tr>
-
     <tr>
-      <td colspan="2"><input type="submit" name="bot_actualizar" id="bot_actualizar" value="Actualizar" style="background-color: #5499C7;"></td>
+      <td colspan="2"><input type="submit" name="bot_actualizar" id="bot_actualizar" value="Actualizar" class="bg-primary bg-gradient"></td>
     </tr>
-    
-    <td class="bot"><a href="/Curso%20PHP/UFIS/index.php"><input type='button' name='atras' id='atras' value='Volver' style="background-color: #81C784;"></a></td>
+    <tr>
+    <td colspan="2"><a href="/Proyecto-UFIS/index.php"><input type='button' name='atras' id='atras' value='Volver' class='bg-success bg-gradient'></a></td>
+    </tr>
+   
   </table>
+  
 </form>
+</div>
 <p>&nbsp;</p>
 </body>
 </html>

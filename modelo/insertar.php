@@ -5,26 +5,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- CSS Bootstrap de forma local -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"  rel="stylesheet"> -->
 </head>
 <body>
 
+
+
+<center><h1>NUEVO USUARIO</h1></center>
 <?php
+
 
 include("conectar.php");
 
 $base=Conectar::conexion();
 
+
+require ("paginacion.php");
+      /*----------------------INSERTAR REGISTRO----------------------------------*/
+      if (isset($_POST["cr"])){
+        $nombre=$_POST["Nom"];
+        $apellido=$_POST["Ape"];
+        $usuario=$_POST["Usu"];
+        $clave=$_POST["Cla"];
+        $inte=$_POST["Inte"];
+        $team=$_POST["Team"];
+        $ubicacion=$_POST["Ubi"];
+        $departamento=$_POST["Dpto"];
+        $observaciones=$_POST["Obs"];
+    
+        $sql="INSERT INTO TBLUSUARIOS (NOMBRE, APELLIDO, USUARIO, CLAVE, INTERNO, TEAM, UBICACION, DEPARTAMENTO, OBSERVACIONES) VALUES (:nom, :ape, :usu, :cla, :inte, :team, :ubi, :dpto, :obs
+        )";
+    
+        $resultado=$base->prepare($sql);
+    
+        $resultado->execute(array(":nom"=>$nombre, ":ape"=>$apellido, ":usu"=>$usuario, ":cla"=>$clave, ":inte"=>$inte, ":team"=>$team, ":ubi"=>$ubicacion, ":dpto"=>$departamento, ":obs"=>$observaciones));
+    
+        //header("Location:index.php");
+        header("Location:/Proyecto-UFIS/index.php");
+      }
+      /*----------------------------------------------------------------------------*/
+
+      
+    
 ?>
-<center><h1>NUEVO USUARIO</h1>
-</center>
+<div class="container">
 <form name="form1" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-  <table width="25%" border="0" align="center">
+<table align="center"> 
 <tr>
 	<td></td>
       <tr><td><label>Nombre:</label><input type='text' name='Nom' size='12' class='centrado' placeholder="Nombre"></td></tr>
       <tr><td><label>Apellido:</label><input type='text' name='Ape' size='12' class='centrado' placeholder="Apellido"></td></tr>
       <tr><td><label>Usuario:</label></label><input type='text' name='Usu' size='12' class='centrado' placeholder="Usuario"></td></tr>
-      <tr><td><label>Conrraseña:</label></label><input type='text' name='Cla' size='12' class='centrado' placeholder="Contraseña"></td></tr>
+      <tr><td><label>Contraseña:</label></label><input type='text' name='Cla' size='12' class='centrado' placeholder="Contraseña"></td></tr>
       <tr><td><label>Interno:</label><input type='text' name='Inte' size='12' class='centrado' placeholder="Interno"></td></tr>
       <tr><td><label>TeamViewer:</label><input type='text' name='Team' size='12' class='centrado' placeholder="TeamViewer"></td></tr>
       <tr></tr><td><label for="ubi">Ubicacion:</label>
@@ -56,12 +91,17 @@ $base=Conectar::conexion();
       </select></tr>
       <tr><td><label>Observaciones:</label><textarea type='text' name='Obs' size='12' class='centrado' placeholder="Observaciones"></textarea></td></tr>
       <tr><td class='bot'><input type='submit' name='cr' id='cr' value='Insertar' style="background-color: #81C784;"></td></tr>
-      <td class="bot"><a href="/Curso%20PHP/UFIS/index.php"><input type='button' name='atras' id='atras' value='Volver'></a></td>
+      <td class="bot"><a href="/Proyecto-UFIS/index.php"><input type='button' name='atras' id='atras' value='Volver'></a></td>
       </tr>
       
-</table>
+</table> 
 
 </form>
+</div>
 <p>&nbsp;</p>
+
+
+<!-- JS Boostrap Local -->
+<script scr="js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

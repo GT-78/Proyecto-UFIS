@@ -49,8 +49,8 @@
 
     $resultado->closeCursor();
     ?>
-    
-    <td class="bot"><a href="/Curso%20PHP/UFIS/index.php"><input type='button' name='atras' id='atras' value='Volver'></a></td>
-    
+    <div class="container">
+    <td class="bot"><a href="/Proyecto-UFIS/index.php"><input type='button' name='atras' id='atras' value='Volver'></a></td>
+    </div>
 </body>
 </html>

@@ -7,7 +7,14 @@
     <title>Document</title>
     <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"> -->
     <!--<link rel="stylesheet" type="text/css" href="hoja.css"> -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"  rel="stylesheet">
+    <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"  rel="stylesheet"> -->
+    
+    <!-- CSS Bootstrap de forma local -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- CSS Bootstrap modo CDN -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
 </head>
 <body>
     <?php
@@ -41,12 +48,15 @@
     ?>
 
 <!---------------------FORMULARIO DE BUSQUEDA------------------------->
-<form action="modelo/pagina_busqueda.php" method="get" class="">
-  <label>Buscar: <input type="text" name="buscar" placeholder="Nombre-Apellido"></label>
-  <input type="submit" name="enviando" value="Ir">
-  <!----------------------BOTON DE PAGINA AGREGAR USUARIO---------------->
-<td class="bot"><a href="/Curso%20PHP/UFIS/MODELO/insertar.php"><input type='button' name='atras' id='atras' value='Agregar'></a></td>
+<div class="container-fluid">
+<form action="/Proyecto-UFIS/modelo/pagina_busqueda.php" method="get" class="">
+  <label>Buscar: <input type="text" name="buscar" placeholder="Nombre"></label>
+  <input type="submit" name="enviando" value="Ir" class="bg-secondary bg-gradient">
+
+<!----------------------BOTON DE PAGINA AGREGAR USUARIO---------------->
+<td class="bot"><a href="modelo/insertar.php"><input type='button' name='atras' id='atras' value='Agregar' class='bg-success bg-gradient'></a></td>
 </form>
+</div>
 <br>
 <!--------------------------------------------------------------------->    
 
@@ -55,7 +65,7 @@
 
 <!--------------------------------------------------------------------->
     <!--<h1>CRUD<span class="subtitulo">Create Read Update Delete</span></h1> -->
-<!-- <div class="col-md-8"> -->
+<div class="container-fluid "> 
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
   <table class="table" width="50%" border="0" align="center">
     <!--<thead class="table-succes table-striped"> -->
@@ -91,19 +101,19 @@
       <th><?php echo $persona["Departamento"]?></th>
       <th><?php echo $persona["Observaciones"]?></th>
       <!-----------------BOTON ACTUALIZAR----------------------------->
-      <th class='bot'><a href="modelo/editar.php?Id=<?php echo $persona["Id"]?> & nom=<?php echo $persona["Nombre"]?> & ape=<?php echo $persona["Apellido"]?> & usu=<?php echo $persona["Usuario"]?> & cla=<?php echo $persona["Clave"]?> & inte=<?php echo $persona["Interno"]?> & team=<?php echo $persona["Team"]?> & ubi=<?php echo $persona["Ubicacion"]?> & dpto=<?php echo $persona["Departamento"]?> & obs=<?php echo $persona["Observaciones"]?>"><input type='button' name='up' id='up' value='Actualizar' style="background-color: #5499C7;"></a></th>  
+      <th class='bot'><a href="modelo/editar.php?Id=<?php echo $persona["Id"]?> & nom=<?php echo $persona["Nombre"]?> & ape=<?php echo $persona["Apellido"]?> & usu=<?php echo $persona["Usuario"]?> & cla=<?php echo $persona["Clave"]?> & inte=<?php echo $persona["Interno"]?> & team=<?php echo $persona["Team"]?> & ubi=<?php echo $persona["Ubicacion"]?> & dpto=<?php echo $persona["Departamento"]?> & obs=<?php echo $persona["Observaciones"]?>"><input type='button' name='up' id='up' value='Actualizar' class='bg-primary bg-gradient'></a></th>  
       <!-----------------BOTON BORRAR--------------------------------->
-      <th class="bot"><a href="modelo/borrar.php?Id=<?php echo $persona["Id"]?>"><input type='button' name='del' id='del' value='Borrar' style="background-color: #EC7063;"></a></th>
+      <th class="bot"><a href="modelo/borrar.php?Id=<?php echo $persona["Id"]?>"><input type='button' name='del' id='del' value='Borrar' class='bg-danger bg-gradient'></a></th>
 
       </tr>
     </tbody>
-    <!-- </div>   -->
+    </div>
     <?php
 
       endforeach;
 
     ?>
-<!---------------------FORMULARFIO INSERTAR----------------------------------------------->
+<!---------------------FORMULARFIO INSERTAR-----------------------------------------------
 	<tr>
 	<td></td>
       <td><input type='text' name='Nom' size='10' class='centrado' placeholder="Nombre"></td>
@@ -113,15 +123,15 @@
       <td><input type='text' name='Inte' size='5' class='centrado' placeholder="Interno"></td>
       <td><input type='text' name='Team' size='10' class='centrado' placeholder="TeamViewer"></td>
       <td><label for="ubi"></label>
-      <!-- <td> -->
+      <td> 
       <select name="ubi" id="ubi">
         <option></option>
         <option>Moreno 1 P</option>
         <option>Moreno 2 P</option>
         <option>9 de Julio 4 P</option>
         </select>
-      <!-- <td><input type='text' name='Ubi' size='10' class='centrado' placeholder="Ubicacion"></td> -->
-      <!--<td><input type='text' name='Dpto' size='10' class='centrado' placeholder="Sector"></td> -->
+      <td><input type='text' name='Ubi' size='10' class='centrado' placeholder="Ubicacion"></td> 
+      <td><input type='text' name='Dpto' size='10' class='centrado' placeholder="Sector"></td> 
       <td><label for="dpto"></label>
       <select name="dpto" id="dpto">
         <option></option>
@@ -137,23 +147,29 @@
         <option>Presupuesto</option>
         <option>Finanzas</option>
         <option>Cuentas a Pagar</option>
-      <!--<input type="hidden" name="dpto" id="dpto" value="<?php echo $dpto ?>"></td> -->
+      <input type="hidden" name="dpto" id="dpto" value="<?php echo $dpto ?>"></td> 
       </select>
       <td><input type='text' name='Obs' size='10' class='centrado' placeholder="Observaciones"></td>
       <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar' style="background-color: #81C784;"></td></tr>
-      
+    -->  
   </table>
   
-</form>
+</form> 
+
+<!------------------------PAGINACION----------------------------->
 <?php
-//------------------------PAGINACION---------------------------------------
+
 
         for($i=1; $i<=$total_paginas; $i++){
 
             echo "<a href='?pagina=" . $i . "'>" . $i . "</a> ";
         
         }
-      ?> 
+?> 
+<!-- JS Boostrap Local -->
+<script scr="js/bootstrap.bundle.min.js"></script>
 
+<!-- JS Boostrap CDN -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
 </body>
 </html>
