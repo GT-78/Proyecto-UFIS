@@ -22,9 +22,9 @@ include("conectar.php");
 
 $base=Conectar::conexion();
 
-
+/*----------------------INSERTAR REGISTRO----------------------------------*/
 require ("paginacion.php");
-      /*----------------------INSERTAR REGISTRO----------------------------------*/
+      
       if (isset($_POST["cr"])){
         $nombre=$_POST["Nom"];
         $apellido=$_POST["Ape"];
@@ -46,7 +46,7 @@ require ("paginacion.php");
         //header("Location:index.php");
         header("Location:/Proyecto-UFIS/index.php");
       }
-      /*----------------------------------------------------------------------------*/
+  /*----------------------------------------------------------------------------*/
 
       
     
@@ -90,12 +90,10 @@ require ("paginacion.php");
       <!--<input type="hidden" name="dpto" id="dpto" value="<?php echo $dpto ?>"></td> -->
       </select></tr>
       <tr><td><label>Observaciones:</label><textarea type='text' name='Obs' size='12' class='centrado' placeholder="Observaciones"></textarea></td></tr>
-      <tr><td class='bot'><input type='submit' name='cr' id='cr' value='Insertar' style="background-color: #81C784;"></td></tr>
-      <td class="bot"><a href="/Proyecto-UFIS/index.php"><input type='button' name='atras' id='atras' value='Volver'></a></td>
+      <tr><td class='bot'><input type='submit' name='cr' id='cr' value='Insertar' class="bg-primary bg-gradient"></td></tr>
+      <td class="bot"><a href="/Proyecto-UFIS/index.php"><input type='button' name='atras' id='atras' value='Volver' class='bg-success bg-gradient'></a></td>
       </tr>
-      
 </table> 
-
 </form>
 </div>
 <p>&nbsp;</p>
