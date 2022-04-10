@@ -2,9 +2,8 @@
 
     class Personas_model{
 
-        private $db;
-
-        private $personas;
+        private $db; // En esta variable guardo la conexion a la BBDD.
+        private $personas; //
 
         public function __construct(){
             
@@ -25,7 +24,6 @@
 
                 $this->personas []=$filas;
             }
-
             return $this->personas;
 
         }

@@ -17,35 +17,7 @@
 
 </head>
 <body>
-    <?php
-
-      require ("modelo/paginacion.php");
-      /*----------------------INSERTAR REGISTRO----------------------------------*/
-      if (isset($_POST["cr"])){
-        $nombre=$_POST["Nom"];
-        $apellido=$_POST["Ape"];
-        $usuario=$_POST["Usu"];
-        $clave=$_POST["Cla"];
-        $inte=$_POST["Inte"];
-        $team=$_POST["Team"];
-        $ubicacion=$_POST["Ubi"];
-        $departamento=$_POST["Dpto"];
-        $observaciones=$_POST["Obs"];
     
-        $sql="INSERT INTO TBLUSUARIOS (NOMBRE, APELLIDO, USUARIO, CLAVE, INTERNO, TEAM, UBICACION, DEPARTAMENTO, OBSERVACIONES) VALUES (:nom, :ape, :usu, :cla, :inte, :team, :ubi, :dpto, :obs
-        )";
-    
-        $resultado=$base->prepare($sql);
-    
-        $resultado->execute(array(":nom"=>$nombre, ":ape"=>$apellido, ":usu"=>$usuario, ":cla"=>$clave, ":inte"=>$inte, ":team"=>$team, ":ubi"=>$ubicacion, ":dpto"=>$departamento, ":obs"=>$observaciones));
-    
-        header("Location:index.php");
-        //header("Location:/Curso%20PHP/UFIS/index.php");
-      }
-      /*----------------------------------------------------------------------------*/
-
-      
-    ?>
 
 <!---------------------FORMULARIO DE BUSQUEDA------------------------->
 <div class="container-fluid">
@@ -59,11 +31,11 @@
 </div>
 <br>
 <!--------------------------------------------------------------------->    
+<?php
+  require("modelo/paginacion.php");
+?>
 
-
-    
-
-<!--------------------------------------------------------------------->
+<!---------------------FORMULARIO USUARIOS----------------------------->
     <!--<h1>CRUD<span class="subtitulo">Create Read Update Delete</span></h1> -->
 <div class="container-fluid "> 
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
@@ -104,8 +76,7 @@
       <th class='bot'><a href="modelo/editar.php?Id=<?php echo $persona["Id"]?> & nom=<?php echo $persona["Nombre"]?> & ape=<?php echo $persona["Apellido"]?> & usu=<?php echo $persona["Usuario"]?> & cla=<?php echo $persona["Clave"]?> & inte=<?php echo $persona["Interno"]?> & team=<?php echo $persona["Team"]?> & ubi=<?php echo $persona["Ubicacion"]?> & dpto=<?php echo $persona["Departamento"]?> & obs=<?php echo $persona["Observaciones"]?>"><input type='button' name='up' id='up' value='Actualizar' class='bg-primary bg-gradient'></a></th>  
       <!-----------------BOTON BORRAR--------------------------------->
       <th class="bot"><a href="modelo/borrar.php?Id=<?php echo $persona["Id"]?>"><input type='button' name='del' id='del' value='Borrar' class='bg-danger bg-gradient'></a></th>
-
-      </tr>
+    </tr>
     </tbody>
     </div>
     <?php
@@ -152,8 +123,9 @@
       <td><input type='text' name='Obs' size='10' class='centrado' placeholder="Observaciones"></td>
       <td class='bot'><input type='submit' name='cr' id='cr' value='Insertar' style="background-color: #81C784;"></td></tr>
     -->  
-  </table>
   
+  
+    </table>
 </form> 
 
 <!------------------------PAGINACION----------------------------->
@@ -165,7 +137,8 @@
             echo "<a href='?pagina=" . $i . "'>" . $i . "</a> ";
         
         }
-?> 
+?>
+
 <!-- JS Boostrap Local -->
 <script scr="js/bootstrap.bundle.min.js"></script>
 

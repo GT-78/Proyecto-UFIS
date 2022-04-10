@@ -18,7 +18,7 @@ if(isset($_GET["pagina"])){
 
 }else{
 
-$pagina=1; //La pagina que estamos al cargar por primera ves nuestra pagina ves. 
+    $pagina=1; //La pagina que estamos al cargar por primera ves nuestra pagina ves. 
 }
 
 $empezar_desde=($pagina-1)*$tamano_paginas;

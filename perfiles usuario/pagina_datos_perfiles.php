@@ -80,7 +80,8 @@
 		   }else{
 			   
 			   
-				include("menu_usuarios.html");   
+				header ("location:/Proyecto-UFIS/index2.php");
+				//include("menu_usuarios.html");   
 			   
 		   }
             
